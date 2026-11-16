@@ -7,6 +7,8 @@
       "request": "launch",
       "program": "${file}",
       "python": "${workspaceFolder}/workshop-ia-fisica/.venv/Scripts/python.exe",
+      "osx": { "python": "${workspaceFolder}/workshop-ia-fisica/.venv/bin/mjpython" },
+      "linux": { "python": "${workspaceFolder}/workshop-ia-fisica/.venv/bin/python" },
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}"
     }

@@ -9,7 +9,10 @@ Que es y que NO es (hay que decirlo claro en el taller):
 La escena se construye con scripts/build_multi_duck_scene.py y scripts/multi_duck_controller.py del repo oficial (sin tocarlos).
 """
 import os, pathlib, sys, threading, time, queue, types
-import msvcrt
+try:
+    import msvcrt
+except ImportError:  # Linux / macOS: sustituto de terminal (lo instala instalar.sh)
+    import msvcrt_posix as msvcrt
 
 for _f in (sys.stdout, sys.stderr):
     _f.reconfigure(encoding="utf-8", errors="replace")

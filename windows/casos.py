@@ -17,7 +17,10 @@ Ctrl + clic derecho arrastrando sobre el robot = empujarlo.
 Tras una patada, la vision detecta en que casilla cae la pelota y el control lleva al pato hasta ella.
 """
 import argparse, os, pathlib, queue, sys, threading, time, types
-import msvcrt
+try:
+    import msvcrt
+except ImportError:  # Linux / macOS: sustituto de terminal (lo instala instalar.sh)
+    import msvcrt_posix as msvcrt
 
 # La consola de Windows (cp1252) no sabe escribir la flecha "→" del codigo oficial: se fuerza UTF-8.
 for _f in (sys.stdout, sys.stderr):

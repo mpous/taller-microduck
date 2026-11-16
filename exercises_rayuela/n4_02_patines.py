@@ -13,7 +13,10 @@ CONTROLES (en la TERMINAL, no en la ventana del robot):
 EXPERIMENTOS: cambia UN valor de la lista de abajo, guarda, CIERRA la ventana y lanza otra vez.
 """
 import os, pathlib, sys, threading, time, types, queue
-import msvcrt
+try:
+    import msvcrt
+except ImportError:  # Linux / macOS: sustituto de terminal (lo instala instalar.sh)
+    import msvcrt_posix as msvcrt
 
 # La consola de Windows no sabe escribir la flecha del codigo oficial: se fuerza UTF-8.
 for _f in (sys.stdout, sys.stderr):

@@ -19,7 +19,10 @@ EXPERIMENTOS: cambia UN valor, guarda (Ctrl+S), CIERRA la ventana y lanza otra v
 usa n4_06_validar_politicas.py.
 """
 import importlib.util, math, os, pathlib, queue, sys, threading, time, types
-import msvcrt
+try:
+    import msvcrt
+except ImportError:  # Linux / macOS: sustituto de terminal (lo instala instalar.sh)
+    import msvcrt_posix as msvcrt
 
 for _f in (sys.stdout, sys.stderr):                  # la consola de Windows no sabe escribir la flecha del codigo oficial
     _f.reconfigure(encoding="utf-8", errors="replace")
